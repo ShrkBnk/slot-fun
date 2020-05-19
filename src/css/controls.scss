@@ -1,0 +1,59 @@
+$backgroundColor: #916857;
+
+#controls {
+  height: 100px;
+  //background-color: $backgroundColor;
+  display: flex;
+  justify-content: center;
+
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23), 0 0 5px #aaa inset;
+  border-radius: 10px;
+
+
+  //border: 5px solid black;
+  margin-top:10px;
+
+  .credits,
+  .bet,
+  .spin {
+    text-align: center;
+    overflow: hidden;
+    width: 33.33%;
+    color:white;
+    font-size:1.2rem;
+
+  }
+
+  .spin {
+    font-size: 1.6rem;
+  }
+
+
+  .credits,
+  .bet {
+    border-right: 2px solid rgba(170, 170, 170, 0.37);
+  }
+
+  .bet {
+    input {
+      margin: 0 auto;
+      width: 80%;
+    }
+  }
+
+  button {
+    border-style: none;
+
+    &.spin {
+      padding: 0;
+      position: relative;
+      background: none;
+      //padding: 15px 45px;
+      &:hover {
+        cursor: pointer;
+      }
+
+    }
+  }
+
+}

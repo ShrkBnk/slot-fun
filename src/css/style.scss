@@ -1,0 +1,123 @@
+
+@mixin boxes() {
+  border: 5px solid #aaa;
+  border-radius: 10px;
+}
+
+body {
+  background: #2B2B2B;
+}
+
+$reelsHeight: 350px;
+$reelsBackgroundColor: cornflowerblue;
+
+#slot {
+  #main {
+    position: relative;
+    max-width: 900px;
+    min-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    height: 100%;
+    .machine {
+      width: 60%;
+
+      #reels {
+        height: $reelsHeight;
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+        //box-shadow: 0 0 2rem rgba(0,0,0,2.4);
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23), 0 0 5px #aaa inset;
+
+        @include boxes;
+
+        .reel {
+          overflow: hidden;
+          width: 33.33%;
+          height: 100%;
+
+          &:nth-child(1),
+          &:nth-child(2) {
+            border-right: 2px solid black;
+          }
+
+          .slots {
+            height: 100%;
+            background-color: $reelsBackgroundColor;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin winningLineSettings() {
+  content: "";
+  position: absolute;
+  border: 2px solid red;
+  margin-top: -1px;
+  width: 100%;
+  left: -2px;
+}
+
+.winning-lines {
+  width: 60%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  height: $reelsHeight;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  flex-direction: column;
+
+  .winning-line-top,
+  .winning-line-center,
+  .winning-line-bottom {
+    position: relative;
+    height: 33.33%;
+    width: 90%;
+    margin:0 auto;
+  }
+
+  .winning-line-center {
+    visibility: hidden;
+    animation: blinker 1s linear infinite;
+    &:after,
+    &:before {
+      @include winningLineSettings;
+      top: 50%;
+    }
+  }
+
+  .winning-line-bottom {
+    visibility: hidden;
+    animation: blinker 1s linear infinite;
+    &:after,
+    &:before {
+      @include winningLineSettings;
+      bottom: 70%;
+    }
+  }
+
+  .winning-line-top {
+    visibility: hidden;
+    animation: blinker 1s linear infinite;
+    &:after,
+    &:before {
+      @include winningLineSettings;
+      top: 80%;
+    }
+  }
+
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
+
+}
+
+
+

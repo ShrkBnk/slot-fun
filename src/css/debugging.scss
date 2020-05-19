@@ -1,0 +1,101 @@
+@mixin boxes() {
+  border: 5px solid black;
+  border-radius: 10px;
+}
+
+
+#debug-controls {
+  position: relative;
+  display: flex;
+
+  .left-reel-debug,
+  .center-reel-debug {
+    //border-right:2px solid black;
+  }
+
+  .left-reel-debug,
+  .center-reel-debug,
+  .right-reel-debug {
+
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23), 0 0 5px #aaa inset;
+
+    position: relative;
+    //background-color: #916857;
+    padding: 15px;
+
+    .symbol,
+    .position {
+      cursor: pointer;
+      border: 1px solid rgba(170, 170, 170, 0.12);
+      &.active {
+        color: orange;
+        border: 1px solid orange;
+      }
+    }
+
+    .debug-symbols {
+      margin-bottom:15px;
+      text-align: center;
+
+      display:flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      .symbol {
+        flex: 1 1 47%;
+        margin-bottom:2px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+
+    }
+
+    .debug-lines {
+
+      margin-top:15px;
+
+      border-top: 1px solid black;
+      text-align: center;
+
+      .position {
+        margin:5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+    }
+
+  }
+
+  //@include boxes;
+  margin-top: 10px;
+
+}
+
+.debugging-button {
+
+  //background-color: #916857;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23), 0 0 5px #aaa inset;
+
+  text-align: center;
+
+  width: 60%;
+  margin: auto;
+
+  //border-radius: 5px;
+
+  p {
+    padding: 15px;
+
+    &:before {
+      content: ' \2195';
+      //vertical-align: middle;
+      position: relative;
+      margin-right: 10px;
+      bottom: 2.5px;
+      width: 100%;
+
+    }
+  }
+
+  cursor: pointer;
+
+}

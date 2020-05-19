@@ -1,0 +1,150 @@
+$reelsHeight: 350px;
+$backgroundColor: #aaa;
+
+@mixin boxes() {
+  //border: 5px solid #aaa;
+  border-radius: 10px;
+}
+
+
+.pay-table {
+  width: 40%;
+  background-color: $backgroundColor;
+  overflow: hidden;
+  height: 100%;
+  margin-left: 10px;
+
+  @include boxes;
+
+  .pay-table-upper {
+    position: relative;
+    height: $reelsHeight;
+    overflow: hidden;
+
+    table {
+      table-layout: fixed;
+      width: 100%;
+      height: 100%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 5px;
+
+      //padding-top: 25px;
+      //padding-bottom: 25px;
+
+      tr {
+        display: flex;
+
+        height:85px;
+        //height: 33%;
+
+        justify-content: center;
+        align-items: center;
+
+        td {
+
+          &:first-child,
+          &:last-child {
+            padding: 0 10px;
+            border-radius: 5px;
+
+            h2 {
+              color: black;
+            }
+          }
+
+          img {
+            width: 100%;
+            height: 50%;
+            object-fit: cover;
+          }
+
+        }
+
+        .top-line {
+          background-color: #ff8423;
+        }
+
+        .center-line {
+          background-color: green;
+        }
+
+        .bottom-line {
+          background-color: red;
+        }
+
+      }
+    }
+  }
+
+  .pay-table-bottom {
+    position: relative;
+    height: 100%;
+
+    table {
+      table-layout: fixed;
+      width: 100%;
+      height: 100%;
+
+      padding-top: 15px;
+      padding-bottom: 15px;
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+
+
+
+      tbody {
+        overflow-y: auto;
+        overflow-x: hidden;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+
+        tr {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          border-bottom: 2px solid black;
+          &:last-child {
+            border-bottom: none;
+          }
+          &:first-child {
+            border-top:2px solid black;
+          }
+
+
+          td {
+            padding-left: 15px;
+            padding-right: 15px;
+
+            width: 30%;
+            text-align: center;
+
+            img {
+              width: 100%;
+              height: 50%;
+              object-fit: cover;
+            }
+
+          }
+
+        }
+      }
+
+
+
+    }
+  }
+
+}
+
+
+.win-line {
+  animation: blinker 2s linear infinite;
+  //background-color: crimson;
+}
